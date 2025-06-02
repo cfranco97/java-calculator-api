@@ -4,10 +4,10 @@ A distributed calculator service using Spring Boot, Apache Kafka, and Docker. Th
 - REST API service for receiving calculation requests
 - Calculator service for processing operations
 
-## Prerequisites
+## Prerequisites (tested on)
 
 - Docker Desktop
-- Java 17 or later (for local development only)
+- Java 24 (for local development only)
 
 ## Quick Start
 
