@@ -1,0 +1,37 @@
+spring:
+  kafka:
+    # The address of the Kafka broker that the application will connect to
+    bootstrap-servers: kafka:9092
+    listener:
+      # The number of concurrent consumers for processing messages
+      concurrency: 1
+    consumer:
+      # The consumer group ID for the Kafka consumers in this application
+      group-id: rest-group
+
+      # When no offset is available, start reading from the latest message
+      auto-offset-reset: latest
+
+      # Deserializer class for the key in Kafka messages (converts byte data to String)
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+      # Deserializer class for the value in Kafka messages (converts byte data to Json)
+      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+    properties:
+        spring.json.trusted.packages: "*"
+        spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
+        spring.json.value.default.type: com.example.CalculationResponse
+        spring.json.use.type.headers: false
+    producer:
+      # Serializer class for the key in Kafka messages (converts String to byte data)
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+      # Serializer class for the value in Kafka messages (converts Json to byte data)
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+      properties:
+        spring.json.add.type.headers: false
+        spring.json.trusted.packages: "*"
+    admin:
+      fail-fast: true
+      create-topics: true
