@@ -11,7 +11,7 @@ A distributed calculator service using Spring Boot, Apache Kafka, and Docker. Th
 
 ## Quick Start
 
-1. Clone the repository
+1. Clone or download the repository locally
 2. Open a terminal in the project root directory
 3. Run the following commands:
 
